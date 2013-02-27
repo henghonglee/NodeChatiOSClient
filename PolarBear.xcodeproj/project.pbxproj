@@ -19,6 +19,16 @@
 		EF531D7916D4EF6300A9C807 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF531D7716D4EF6300A9C807 /* MainStoryboard.storyboard */; };
 		EF531D7C16D4EF6300A9C807 /* PBMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF531D7B16D4EF6300A9C807 /* PBMasterViewController.m */; };
 		EF531D7F16D4EF6300A9C807 /* PBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF531D7E16D4EF6300A9C807 /* PBDetailViewController.m */; };
+		EF531D8716D4EF9200A9C807 /* PBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF531D8616D4EF9200A9C807 /* PBLoginViewController.m */; };
+		EF531D8916D4F0A800A9C807 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF531D8816D4F0A800A9C807 /* FacebookSDK.framework */; };
+		EF531D8B16D4F27300A9C807 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF531D8A16D4F27300A9C807 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		EF531D8D16D4F28E00A9C807 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF531D8C16D4F28E00A9C807 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		EF531D8F16D4F29500A9C807 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF531D8E16D4F29500A9C807 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		EF531D9516D4F2F400A9C807 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EF531D9416D4F2F400A9C807 /* libsqlite3.dylib */; };
+		EF5FDBFE16D7C9E40019E3BA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5FDBFD16D7C9E40019E3BA /* CFNetwork.framework */; };
+		EF5FDC0116D7CA090019E3BA /* TCPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5FDBFF16D7CA090019E3BA /* TCPViewController.m */; };
+		EF5FDC0416D8557C0019E3BA /* PBChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5FDC0316D8557C0019E3BA /* PBChatCell.m */; };
+		EF68E9F316DBAE4D006A6D84 /* PBtcpObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68E9F216DBAE4D006A6D84 /* PBtcpObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +50,20 @@
 		EF531D7B16D4EF6300A9C807 /* PBMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PBMasterViewController.m; sourceTree = "<group>"; };
 		EF531D7D16D4EF6300A9C807 /* PBDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBDetailViewController.h; sourceTree = "<group>"; };
 		EF531D7E16D4EF6300A9C807 /* PBDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PBDetailViewController.m; sourceTree = "<group>"; };
+		EF531D8516D4EF9200A9C807 /* PBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBLoginViewController.h; sourceTree = "<group>"; };
+		EF531D8616D4EF9200A9C807 /* PBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBLoginViewController.m; sourceTree = "<group>"; };
+		EF531D8816D4F0A800A9C807 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		EF531D8A16D4F27300A9C807 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		EF531D8C16D4F28E00A9C807 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		EF531D8E16D4F29500A9C807 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		EF531D9416D4F2F400A9C807 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		EF5FDBFD16D7C9E40019E3BA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		EF5FDBFF16D7CA090019E3BA /* TCPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPViewController.m; sourceTree = "<group>"; };
+		EF5FDC0016D7CA090019E3BA /* TCPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPViewController.h; sourceTree = "<group>"; };
+		EF5FDC0216D8557C0019E3BA /* PBChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBChatCell.h; sourceTree = "<group>"; };
+		EF5FDC0316D8557C0019E3BA /* PBChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBChatCell.m; sourceTree = "<group>"; };
+		EF68E9F116DBAE4D006A6D84 /* PBtcpObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBtcpObject.h; sourceTree = "<group>"; };
+		EF68E9F216DBAE4D006A6D84 /* PBtcpObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBtcpObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +71,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5FDBFE16D7C9E40019E3BA /* CFNetwork.framework in Frameworks */,
+				EF531D9516D4F2F400A9C807 /* libsqlite3.dylib in Frameworks */,
+				EF531D8F16D4F29500A9C807 /* AdSupport.framework in Frameworks */,
+				EF531D8D16D4F28E00A9C807 /* Accounts.framework in Frameworks */,
+				EF531D8B16D4F27300A9C807 /* Social.framework in Frameworks */,
+				EF531D8916D4F0A800A9C807 /* FacebookSDK.framework in Frameworks */,
 				EF531D6016D4EF6300A9C807 /* UIKit.framework in Frameworks */,
 				EF531D6216D4EF6300A9C807 /* Foundation.framework in Frameworks */,
 				EF531D6416D4EF6300A9C807 /* CoreGraphics.framework in Frameworks */,
@@ -59,6 +89,7 @@
 		EF531D5316D4EF6300A9C807 = {
 			isa = PBXGroup;
 			children = (
+				EF5FDBFD16D7C9E40019E3BA /* CFNetwork.framework */,
 				EF531D6516D4EF6300A9C807 /* PolarBear */,
 				EF531D5E16D4EF6300A9C807 /* Frameworks */,
 				EF531D5D16D4EF6300A9C807 /* Products */,
@@ -76,6 +107,11 @@
 		EF531D5E16D4EF6300A9C807 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF531D9416D4F2F400A9C807 /* libsqlite3.dylib */,
+				EF531D8E16D4F29500A9C807 /* AdSupport.framework */,
+				EF531D8C16D4F28E00A9C807 /* Accounts.framework */,
+				EF531D8A16D4F27300A9C807 /* Social.framework */,
+				EF531D8816D4F0A800A9C807 /* FacebookSDK.framework */,
 				EF531D5F16D4EF6300A9C807 /* UIKit.framework */,
 				EF531D6116D4EF6300A9C807 /* Foundation.framework */,
 				EF531D6316D4EF6300A9C807 /* CoreGraphics.framework */,
@@ -93,6 +129,14 @@
 				EF531D7B16D4EF6300A9C807 /* PBMasterViewController.m */,
 				EF531D7D16D4EF6300A9C807 /* PBDetailViewController.h */,
 				EF531D7E16D4EF6300A9C807 /* PBDetailViewController.m */,
+				EF531D8516D4EF9200A9C807 /* PBLoginViewController.h */,
+				EF531D8616D4EF9200A9C807 /* PBLoginViewController.m */,
+				EF5FDC0016D7CA090019E3BA /* TCPViewController.h */,
+				EF5FDBFF16D7CA090019E3BA /* TCPViewController.m */,
+				EF68E9F116DBAE4D006A6D84 /* PBtcpObject.h */,
+				EF68E9F216DBAE4D006A6D84 /* PBtcpObject.m */,
+				EF5FDC0216D8557C0019E3BA /* PBChatCell.h */,
+				EF5FDC0316D8557C0019E3BA /* PBChatCell.m */,
 				EF531D6616D4EF6300A9C807 /* Supporting Files */,
 			);
 			path = PolarBear;
@@ -183,6 +227,10 @@
 				EF531D7016D4EF6300A9C807 /* PBAppDelegate.m in Sources */,
 				EF531D7C16D4EF6300A9C807 /* PBMasterViewController.m in Sources */,
 				EF531D7F16D4EF6300A9C807 /* PBDetailViewController.m in Sources */,
+				EF531D8716D4EF9200A9C807 /* PBLoginViewController.m in Sources */,
+				EF5FDC0116D7CA090019E3BA /* TCPViewController.m in Sources */,
+				EF5FDC0416D8557C0019E3BA /* PBChatCell.m in Sources */,
+				EF68E9F316DBAE4D006A6D84 /* PBtcpObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,10 +315,19 @@
 		EF531D8316D4EF6300A9C807 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lee Heng Hong (T53AB93G9J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lee Heng Hong (T53AB93G9J)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PolarBear/PolarBear-Prefix.pch";
 				INFOPLIST_FILE = "PolarBear/PolarBear-Info.plist";
+				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "FA63E469-475D-438B-8921-8CAFC0AE1775";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FA63E469-475D-438B-8921-8CAFC0AE1775";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -278,10 +335,19 @@
 		EF531D8416D4EF6300A9C807 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lee Heng Hong (T53AB93G9J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lee Heng Hong (T53AB93G9J)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PolarBear/PolarBear-Prefix.pch";
 				INFOPLIST_FILE = "PolarBear/PolarBear-Info.plist";
+				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "FA63E469-475D-438B-8921-8CAFC0AE1775";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FA63E469-475D-438B-8921-8CAFC0AE1775";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -305,6 +371,7 @@
 				EF531D8416D4EF6300A9C807 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
