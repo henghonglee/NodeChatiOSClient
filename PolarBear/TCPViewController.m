@@ -26,13 +26,28 @@
     [self.channelTableView setDataSource:self];
     [self.view addSubview:self.channelTableView];
     [self.view bringSubviewToFront:self.inputToolbar];
-    
+    self.navigationItem.title = @"NodeChat";
+    UIBarButtonItem* leaveButton = [[UIBarButtonItem alloc]initWithTitle:@"Leave Room" style:UIBarButtonItemStyleBordered target:self action:@selector(leaveAndDisconnect)];
+    self.navigationItem.rightBarButtonItem = leaveButton;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 -(void)viewDidAppear:(BOOL)animated
 {
 
     
+}
+-(void)leaveAndDisconnect
+{
+    NSString *response  = @"leaveRoom Lobby";
+    NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+    if([outputStream write:[data bytes] maxLength:[data length]]>0){
+        [self breakNetworkCommunication];
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Bye!" message:@"You'll stop recieving push notifications =)" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    exit(0);
 }
 //54.225.216.199
 - (void)initNetworkCommunication {
@@ -169,9 +184,7 @@
 {
     [super inputButtonPressed:inputText];
     NSString *response  = [NSString stringWithFormat:@"say %@\n",inputText];
-    
-    
-	NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+    NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
     if([outputStream write:[data bytes] maxLength:[data length]]>0){
         NSDictionary* dictionary = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@", inputText],@"message",[NSDictionary dictionaryWithObjectsAndKeys:self.currentUser.first_name,@"fb_name", nil],@"params", nil];
         inputText = @"";

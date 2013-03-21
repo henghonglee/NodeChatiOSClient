@@ -12,7 +12,7 @@
 #import "UIInputToolbarViewController.h"
 #import "UIInputToolbar.h"  
 #import <FacebookSDK/FacebookSDK.h>
-@interface TCPViewController : UIInputToolbarViewController<NSStreamDelegate,UITableViewDataSource,UITabBarControllerDelegate,UITableViewDelegate>
+@interface TCPViewController : UIInputToolbarViewController<NSStreamDelegate,UIAlertViewDelegate,UITableViewDataSource,UITabBarControllerDelegate,UITableViewDelegate>
 
 {
 
