@@ -9,7 +9,7 @@
 #import "TCPViewController.h"
 #import "PBLoginViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
-#import "PBtcpObject.h"
+
 @interface TCPViewController ()
 
 @end
@@ -21,48 +21,41 @@
 {
     [super viewDidLoad];
     textArray = [[NSMutableArray alloc]init];
-
-    [self initNetworkCommunication];
+    self.channelTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0,self.view.bounds.size.width,self.view.bounds.size.height-44-40)];
+    [self.channelTableView setDelegate:self];
+    [self.channelTableView setDataSource:self];
+    [self.view addSubview:self.channelTableView];
+    [self.view bringSubviewToFront:self.inputToolbar];
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-//    PBLoginViewController* loginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Login"];
-//    // Override point for customization after application launch.
-//    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded)
-//    {
-//        // To-do, show logged in view        
-//         NSLog(@"show logged in view");
-//    } else {
-//        // No, display the login page.
-//        
-//        [self presentViewController:loginViewController animated:YES completion:^{
-//            
-//        }];
-//    }
+
     
 }
+//54.225.216.199
 - (void)initNetworkCommunication {
-    
-    
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"192.168.1.7", 5000, &readStream, &writeStream);
+    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"54.225.216.199", 5000, &readStream, &writeStream);
     inputStream = (__bridge_transfer NSInputStream *)readStream;
     outputStream = (__bridge_transfer NSOutputStream *)writeStream;
     [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     inputStream.delegate = self;
     outputStream.delegate = self;
-
     [inputStream open];
     [outputStream open];
     
 }
+- (void)breakNetworkCommunication {
+    inputStream.delegate = nil;
+    outputStream.delegate = nil;
+    [inputStream close];
+    [outputStream close];
+}
 - (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode {
-    
-        NSLog(@"%@,%@",aStream,aStream.streamError);
     	switch (eventCode) {
         case 0:
             NSLog(@"no event");
@@ -71,39 +64,42 @@
 			NSLog(@"Stream opened");
             // here we input our paramsAdd
                 if (aStream==outputStream) {
-                    [[UIApplication sharedApplication].delegate performSelector:@selector(openSession)];
+                    NSLog(@"OutStream opened");
+
+
                     if (FBSession.activeSession.isOpen) {
                         [[FBRequest requestForMe] startWithCompletionHandler:
                          ^(FBRequestConnection *connection,
                            NSDictionary<FBGraphUser> *user,
                            NSError *error) {
                              if (!error) {
-                                 NSLog(@"%@",user.id);
-                                 NSLog(@"%@",user.name);
+                                 self.currentUser = user;
+                                 [textArray removeAllObjects];
                                  NSData *pushData = [[NSData alloc] initWithData:[[NSString stringWithFormat:@"paramAdd device_token=%@\n ",[[NSUserDefaults standardUserDefaults] objectForKey:@"pushToken"]] dataUsingEncoding:NSASCIIStringEncoding]];
                                  NSLog(@"submit paramAdd fb_name %u",[outputStream write:[pushData bytes] maxLength:[pushData length]]);
                                  NSData *data = [[NSData alloc] initWithData:[[NSString stringWithFormat:@"paramAdd fb_name=%@\n ",[user.first_name stringByReplacingOccurrencesOfString:@" " withString:@"%20"]] dataUsingEncoding:NSASCIIStringEncoding]];
                                  NSLog(@"submit paramAdd fb_name %u",[outputStream write:[data bytes] maxLength:[data length]]);
                                  NSData* idData = [[NSData alloc] initWithData:[[NSString stringWithFormat:@"paramAdd fb_id=%@\n ",user.id] dataUsingEncoding:NSASCIIStringEncoding]];
                                  NSLog(@"submit paramAdd fb_name %u",[outputStream write:[idData bytes] maxLength:[idData length]]);
-                                     NSData* roomChangeData = [[NSData alloc] initWithData:[[NSString stringWithFormat:@"roomChange Lobby\n "] dataUsingEncoding:NSASCIIStringEncoding]];
-                                     NSLog(@"submit roomChange %u",[outputStream write:[roomChangeData bytes] maxLength:[roomChangeData length]]);
+                                 NSData* roomChangeData = [[NSData alloc] initWithData:[[NSString stringWithFormat:@"roomChange Lobby\n "] dataUsingEncoding:NSASCIIStringEncoding]];
+                                 NSLog(@"submit roomChange %u",[outputStream write:[roomChangeData bytes] maxLength:[roomChangeData length]]);
                              }else{
                                  NSLog(@"error = %@",error);
                              }
-                         }];      
+                         }];
                     }else{
-                        NSLog(@"FBsession not open");
+                        NSLog(@"FBsession not open error ");
                     }
                 }
-                
+                if (aStream==inputStream){
+                    NSLog(@"input stream opened");
+                }
 			break;
             
 		case 2:
-            NSLog(@"Stream has bytes");
             if (aStream == inputStream) {
-                
-                uint8_t buffer[4096];
+                NSLog(@"input has bytes");
+                uint8_t buffer[8192];
                 int len;
                 
                 while ([inputStream hasBytesAvailable])
@@ -155,12 +151,12 @@
             NSLog(@"Can not connect to the host! %@",[aStream streamError]);
 			break;
             
-            case NSStreamEventEndEncountered:
-                
-                [aStream close];
-                [aStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-                
-                break;
+        case NSStreamEventEndEncountered:
+            NSLog(@"end encountered");
+            [aStream close];
+            [aStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+            
+            break;
 
             
 		default:
@@ -169,34 +165,72 @@
 	}
     
 }
+-(void)inputButtonPressed:(NSString *)inputText
+{
+    [super inputButtonPressed:inputText];
+    NSString *response  = [NSString stringWithFormat:@"say %@\n",inputText];
+    
+    
+	NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+    if([outputStream write:[data bytes] maxLength:[data length]]>0){
+        NSDictionary* dictionary = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@", inputText],@"message",[NSDictionary dictionaryWithObjectsAndKeys:self.currentUser.first_name,@"fb_name", nil],@"params", nil];
+        inputText = @"";
+        [self.textArray addObject:dictionary];
+        [self.channelTableView reloadData];
+        [self.channelTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.textArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
+
+}
+
+
+
 - (IBAction)sendText:(id)sender {
 
-    NSString *response  = [NSString stringWithFormat:@"say %@\n", _sendTextField.text];
-
-    NSDictionary* dictionary = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@", _sendTextField.text],@"message",[NSDictionary dictionaryWithObjectsAndKeys:@"MyName",@"fb_name", nil],@"params", nil];
-    _sendTextField.text = @"";
-    [self.textArray addObject:dictionary];
-    [self.channelTableView reloadData];
-    [self.channelTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.textArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-	NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
-    NSLog(@"%u",[outputStream write:[data bytes] maxLength:[data length]]);
-}
+    }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [textArray count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"mycell";
-    
-    PBChatCell *cell = (PBChatCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-
+    static NSString *channelCellIdentifier = @"channelCell";
+    PBChatCell* cell = (PBChatCell*) [tableView dequeueReusableCellWithIdentifier:channelCellIdentifier];
+    if (cell == nil) {
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"PBChatCell" owner:nil options:nil];
+        for(id currentObject in topLevelObjects){
+            if([currentObject isKindOfClass:[UITableViewCell class]]){
+                cell = (PBChatCell*)currentObject;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+        }
+    }
     NSDictionary* messageDictionary = [textArray objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@: %@",[[messageDictionary objectForKey:@"params"] objectForKey:@"fb_name"],[messageDictionary objectForKey:@"message"]];
     return cell;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.inputToolbar.textView resignFirstResponder];
+}
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    [super keyboardWillShow:notification];
+    NSDictionary* info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    [self.channelTableView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-kbSize.height-44)];
+    if (self.textArray.count>0) {
+        [self.channelTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.textArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
 
+}
 
-
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    [super keyboardWillHide:notification];
+    [self.channelTableView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-44)];
+    if (self.textArray.count>0) {
+        [self.channelTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.textArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

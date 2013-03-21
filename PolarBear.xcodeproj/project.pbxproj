@@ -17,18 +17,26 @@
 		EF531D7416D4EF6300A9C807 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF531D7316D4EF6300A9C807 /* Default@2x.png */; };
 		EF531D7616D4EF6300A9C807 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF531D7516D4EF6300A9C807 /* Default-568h@2x.png */; };
 		EF531D7916D4EF6300A9C807 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF531D7716D4EF6300A9C807 /* MainStoryboard.storyboard */; };
-		EF531D7C16D4EF6300A9C807 /* PBMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF531D7B16D4EF6300A9C807 /* PBMasterViewController.m */; };
-		EF531D7F16D4EF6300A9C807 /* PBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF531D7E16D4EF6300A9C807 /* PBDetailViewController.m */; };
 		EF531D8716D4EF9200A9C807 /* PBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF531D8616D4EF9200A9C807 /* PBLoginViewController.m */; };
 		EF531D8916D4F0A800A9C807 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF531D8816D4F0A800A9C807 /* FacebookSDK.framework */; };
 		EF531D8B16D4F27300A9C807 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF531D8A16D4F27300A9C807 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EF531D8D16D4F28E00A9C807 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF531D8C16D4F28E00A9C807 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EF531D8F16D4F29500A9C807 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF531D8E16D4F29500A9C807 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EF531D9516D4F2F400A9C807 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EF531D9416D4F2F400A9C807 /* libsqlite3.dylib */; };
+		EF59502A16E9AA3A00C4CC31 /* UIExpandingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF59502316E9AA3700C4CC31 /* UIExpandingTextView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF59502B16E9AA3A00C4CC31 /* UIExpandingTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = EF59502516E9AA3700C4CC31 /* UIExpandingTextViewInternal.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF59502C16E9AA3A00C4CC31 /* UIInputToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = EF59502716E9AA3800C4CC31 /* UIInputToolbar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF59502D16E9AA3A00C4CC31 /* UIInputToolbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF59502916E9AA3900C4CC31 /* UIInputToolbarViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF59503616E9AD4C00C4CC31 /* buttonbg.png in Resources */ = {isa = PBXBuildFile; fileRef = EF59503016E9AD4C00C4CC31 /* buttonbg.png */; };
+		EF59503716E9AD4C00C4CC31 /* buttonbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF59503116E9AD4C00C4CC31 /* buttonbg@2x.png */; };
+		EF59503816E9AD4C00C4CC31 /* textbg.png in Resources */ = {isa = PBXBuildFile; fileRef = EF59503216E9AD4C00C4CC31 /* textbg.png */; };
+		EF59503916E9AD4C00C4CC31 /* textbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF59503316E9AD4C00C4CC31 /* textbg@2x.png */; };
+		EF59503A16E9AD4C00C4CC31 /* toolbarbg.png in Resources */ = {isa = PBXBuildFile; fileRef = EF59503416E9AD4C00C4CC31 /* toolbarbg.png */; };
+		EF59503B16E9AD4C00C4CC31 /* toolbarbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF59503516E9AD4C00C4CC31 /* toolbarbg@2x.png */; };
+		EF59503D16E9AF0700C4CC31 /* PBChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF59503C16E9AF0700C4CC31 /* PBChatCell.xib */; };
 		EF5FDBFE16D7C9E40019E3BA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5FDBFD16D7C9E40019E3BA /* CFNetwork.framework */; };
 		EF5FDC0116D7CA090019E3BA /* TCPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5FDBFF16D7CA090019E3BA /* TCPViewController.m */; };
 		EF5FDC0416D8557C0019E3BA /* PBChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5FDC0316D8557C0019E3BA /* PBChatCell.m */; };
-		EF68E9F316DBAE4D006A6D84 /* PBtcpObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EF68E9F216DBAE4D006A6D84 /* PBtcpObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,10 +54,6 @@
 		EF531D7316D4EF6300A9C807 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EF531D7516D4EF6300A9C807 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EF531D7816D4EF6300A9C807 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		EF531D7A16D4EF6300A9C807 /* PBMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBMasterViewController.h; sourceTree = "<group>"; };
-		EF531D7B16D4EF6300A9C807 /* PBMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PBMasterViewController.m; sourceTree = "<group>"; };
-		EF531D7D16D4EF6300A9C807 /* PBDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBDetailViewController.h; sourceTree = "<group>"; };
-		EF531D7E16D4EF6300A9C807 /* PBDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PBDetailViewController.m; sourceTree = "<group>"; };
 		EF531D8516D4EF9200A9C807 /* PBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBLoginViewController.h; sourceTree = "<group>"; };
 		EF531D8616D4EF9200A9C807 /* PBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBLoginViewController.m; sourceTree = "<group>"; };
 		EF531D8816D4F0A800A9C807 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
@@ -57,13 +61,26 @@
 		EF531D8C16D4F28E00A9C807 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		EF531D8E16D4F29500A9C807 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		EF531D9416D4F2F400A9C807 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		EF59502216E9AA3600C4CC31 /* UIExpandingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIExpandingTextView.h; sourceTree = "<group>"; };
+		EF59502316E9AA3700C4CC31 /* UIExpandingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIExpandingTextView.m; sourceTree = "<group>"; };
+		EF59502416E9AA3700C4CC31 /* UIExpandingTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIExpandingTextViewInternal.h; sourceTree = "<group>"; };
+		EF59502516E9AA3700C4CC31 /* UIExpandingTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIExpandingTextViewInternal.m; sourceTree = "<group>"; };
+		EF59502616E9AA3700C4CC31 /* UIInputToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIInputToolbar.h; sourceTree = "<group>"; };
+		EF59502716E9AA3800C4CC31 /* UIInputToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIInputToolbar.m; sourceTree = "<group>"; };
+		EF59502816E9AA3900C4CC31 /* UIInputToolbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIInputToolbarViewController.h; sourceTree = "<group>"; };
+		EF59502916E9AA3900C4CC31 /* UIInputToolbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIInputToolbarViewController.m; sourceTree = "<group>"; };
+		EF59503016E9AD4C00C4CC31 /* buttonbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonbg.png; sourceTree = "<group>"; };
+		EF59503116E9AD4C00C4CC31 /* buttonbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonbg@2x.png"; sourceTree = "<group>"; };
+		EF59503216E9AD4C00C4CC31 /* textbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textbg.png; sourceTree = "<group>"; };
+		EF59503316E9AD4C00C4CC31 /* textbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textbg@2x.png"; sourceTree = "<group>"; };
+		EF59503416E9AD4C00C4CC31 /* toolbarbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbarbg.png; sourceTree = "<group>"; };
+		EF59503516E9AD4C00C4CC31 /* toolbarbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbarbg@2x.png"; sourceTree = "<group>"; };
+		EF59503C16E9AF0700C4CC31 /* PBChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBChatCell.xib; sourceTree = "<group>"; };
 		EF5FDBFD16D7C9E40019E3BA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		EF5FDBFF16D7CA090019E3BA /* TCPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPViewController.m; sourceTree = "<group>"; };
 		EF5FDC0016D7CA090019E3BA /* TCPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPViewController.h; sourceTree = "<group>"; };
 		EF5FDC0216D8557C0019E3BA /* PBChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBChatCell.h; sourceTree = "<group>"; };
 		EF5FDC0316D8557C0019E3BA /* PBChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBChatCell.m; sourceTree = "<group>"; };
-		EF68E9F116DBAE4D006A6D84 /* PBtcpObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBtcpObject.h; sourceTree = "<group>"; };
-		EF68E9F216DBAE4D006A6D84 /* PBtcpObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBtcpObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,18 +142,14 @@
 				EF531D6E16D4EF6300A9C807 /* PBAppDelegate.h */,
 				EF531D6F16D4EF6300A9C807 /* PBAppDelegate.m */,
 				EF531D7716D4EF6300A9C807 /* MainStoryboard.storyboard */,
-				EF531D7A16D4EF6300A9C807 /* PBMasterViewController.h */,
-				EF531D7B16D4EF6300A9C807 /* PBMasterViewController.m */,
-				EF531D7D16D4EF6300A9C807 /* PBDetailViewController.h */,
-				EF531D7E16D4EF6300A9C807 /* PBDetailViewController.m */,
 				EF531D8516D4EF9200A9C807 /* PBLoginViewController.h */,
 				EF531D8616D4EF9200A9C807 /* PBLoginViewController.m */,
 				EF5FDC0016D7CA090019E3BA /* TCPViewController.h */,
 				EF5FDBFF16D7CA090019E3BA /* TCPViewController.m */,
-				EF68E9F116DBAE4D006A6D84 /* PBtcpObject.h */,
-				EF68E9F216DBAE4D006A6D84 /* PBtcpObject.m */,
 				EF5FDC0216D8557C0019E3BA /* PBChatCell.h */,
 				EF5FDC0316D8557C0019E3BA /* PBChatCell.m */,
+				EF59503C16E9AF0700C4CC31 /* PBChatCell.xib */,
+				EF59502E16E9AA4100C4CC31 /* UIInputToolBar */,
 				EF531D6616D4EF6300A9C807 /* Supporting Files */,
 			);
 			path = PolarBear;
@@ -154,6 +167,35 @@
 				EF531D7516D4EF6300A9C807 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF59502E16E9AA4100C4CC31 /* UIInputToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				EF59502216E9AA3600C4CC31 /* UIExpandingTextView.h */,
+				EF59502316E9AA3700C4CC31 /* UIExpandingTextView.m */,
+				EF59502416E9AA3700C4CC31 /* UIExpandingTextViewInternal.h */,
+				EF59502516E9AA3700C4CC31 /* UIExpandingTextViewInternal.m */,
+				EF59502616E9AA3700C4CC31 /* UIInputToolbar.h */,
+				EF59502716E9AA3800C4CC31 /* UIInputToolbar.m */,
+				EF59502816E9AA3900C4CC31 /* UIInputToolbarViewController.h */,
+				EF59502916E9AA3900C4CC31 /* UIInputToolbarViewController.m */,
+				EF59502F16E9AD3D00C4CC31 /* Resources */,
+			);
+			name = UIInputToolBar;
+			sourceTree = "<group>";
+		};
+		EF59502F16E9AD3D00C4CC31 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EF59503016E9AD4C00C4CC31 /* buttonbg.png */,
+				EF59503116E9AD4C00C4CC31 /* buttonbg@2x.png */,
+				EF59503216E9AD4C00C4CC31 /* textbg.png */,
+				EF59503316E9AD4C00C4CC31 /* textbg@2x.png */,
+				EF59503416E9AD4C00C4CC31 /* toolbarbg.png */,
+				EF59503516E9AD4C00C4CC31 /* toolbarbg@2x.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +255,13 @@
 				EF531D7416D4EF6300A9C807 /* Default@2x.png in Resources */,
 				EF531D7616D4EF6300A9C807 /* Default-568h@2x.png in Resources */,
 				EF531D7916D4EF6300A9C807 /* MainStoryboard.storyboard in Resources */,
+				EF59503616E9AD4C00C4CC31 /* buttonbg.png in Resources */,
+				EF59503716E9AD4C00C4CC31 /* buttonbg@2x.png in Resources */,
+				EF59503816E9AD4C00C4CC31 /* textbg.png in Resources */,
+				EF59503916E9AD4C00C4CC31 /* textbg@2x.png in Resources */,
+				EF59503A16E9AD4C00C4CC31 /* toolbarbg.png in Resources */,
+				EF59503B16E9AD4C00C4CC31 /* toolbarbg@2x.png in Resources */,
+				EF59503D16E9AF0700C4CC31 /* PBChatCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,12 +274,13 @@
 			files = (
 				EF531D6C16D4EF6300A9C807 /* main.m in Sources */,
 				EF531D7016D4EF6300A9C807 /* PBAppDelegate.m in Sources */,
-				EF531D7C16D4EF6300A9C807 /* PBMasterViewController.m in Sources */,
-				EF531D7F16D4EF6300A9C807 /* PBDetailViewController.m in Sources */,
 				EF531D8716D4EF9200A9C807 /* PBLoginViewController.m in Sources */,
 				EF5FDC0116D7CA090019E3BA /* TCPViewController.m in Sources */,
 				EF5FDC0416D8557C0019E3BA /* PBChatCell.m in Sources */,
-				EF68E9F316DBAE4D006A6D84 /* PBtcpObject.m in Sources */,
+				EF59502A16E9AA3A00C4CC31 /* UIExpandingTextView.m in Sources */,
+				EF59502B16E9AA3A00C4CC31 /* UIExpandingTextViewInternal.m in Sources */,
+				EF59502C16E9AA3A00C4CC31 /* UIInputToolbar.m in Sources */,
+				EF59502D16E9AA3A00C4CC31 /* UIInputToolbarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,8 +376,8 @@
 				INFOPLIST_FILE = "PolarBear/PolarBear-Info.plist";
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FA63E469-475D-438B-8921-8CAFC0AE1775";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FA63E469-475D-438B-8921-8CAFC0AE1775";
+				PROVISIONING_PROFILE = "89FBC7D0-2F46-4A06-8CFB-CE06514898BE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89FBC7D0-2F46-4A06-8CFB-CE06514898BE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -346,8 +396,8 @@
 				INFOPLIST_FILE = "PolarBear/PolarBear-Info.plist";
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FA63E469-475D-438B-8921-8CAFC0AE1775";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FA63E469-475D-438B-8921-8CAFC0AE1775";
+				PROVISIONING_PROFILE = "89FBC7D0-2F46-4A06-8CFB-CE06514898BE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "89FBC7D0-2F46-4A06-8CFB-CE06514898BE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

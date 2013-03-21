@@ -13,4 +13,5 @@
 @property (strong, nonatomic) UIWindow *window;
 
 - (void)openSession;
+- (void)openSessionWithCallbackBlock:(void (^)(BOOL success))callbackBlock;
 @end

@@ -9,14 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <CFNetwork/CFNetwork.h>
 #import "PBChatCell.h"
-@interface TCPViewController : UIViewController<NSStreamDelegate,UITableViewDataSource,UITabBarControllerDelegate>
+#import "UIInputToolbarViewController.h"
+#import "UIInputToolbar.h"  
+#import <FacebookSDK/FacebookSDK.h>
+@interface TCPViewController : UIInputToolbarViewController<NSStreamDelegate,UITableViewDataSource,UITabBarControllerDelegate,UITableViewDelegate>
 
 {
 
 }
+@property (strong, nonatomic) NSDictionary<FBGraphUser> * currentUser;
 @property (strong, nonatomic) NSInputStream*inputStream;
 @property (strong, nonatomic) NSOutputStream *outputStream;
 @property (retain, nonatomic) NSMutableArray* textArray;
-@property (retain, nonatomic) IBOutlet UITableView *channelTableView;
+@property (strong, nonatomic) UITableView *channelTableView;
 @property (retain, nonatomic) IBOutlet UITextField *sendTextField;
 @end

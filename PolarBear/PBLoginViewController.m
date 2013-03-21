@@ -51,10 +51,21 @@
         }];
     } else {
         PBAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-        [appDelegate openSession];
+        [appDelegate openSessionWithCallbackBlock:^(BOOL success){
+            if (success) {
+                [self dismissViewControllerAnimated:NO completion:nil];
+            }
+         
+        }];
         // No, display the login page.
         
     }
+}
+- (void)loginFailed
+{
+    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"loginFailed" message:@"message" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    
 }
 
 - (void)viewDidLoad

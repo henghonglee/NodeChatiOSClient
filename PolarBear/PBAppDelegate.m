@@ -8,16 +8,19 @@
 
 #import "PBAppDelegate.h"
 #import "PBLoginViewController.h"
-#import "PBMasterViewController.h"
-#import "PBtcpObject.h"
+#import "UIInputToolbarViewController.h"
+#import "TCPViewController.h"
 @implementation PBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge |
       UIRemoteNotificationTypeSound |
       UIRemoteNotificationTypeAlert)];
+    NSLog(@"self.window top = %@",self.window.rootViewController);
+    
     return YES;
 }
 - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:
@@ -53,8 +56,6 @@ userInfo
 	NSLog(@"In did receive  Remote Notifications, %@", userInfo);
 }
 
-
-
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -63,8 +64,11 @@ userInfo
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
+    
+    if([((UINavigationController*)self.window.rootViewController).topViewController respondsToSelector:@selector(breakNetworkCommunication)]){
+            [((UINavigationController*)self.window.rootViewController).topViewController performSelector:@selector(breakNetworkCommunication)];
+        }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -74,8 +78,23 @@ userInfo
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    UIStoryboard *st = [UIStoryboard storyboardWithName:[[NSBundle mainBundle].infoDictionary objectForKey:@"UIMainStoryboardFile"] bundle:[NSBundle mainBundle]];
+    PBLoginViewController* loginViewController = [st instantiateViewControllerWithIdentifier:@"Login"];
+
+    if([((UINavigationController*)self.window.rootViewController).topViewController respondsToSelector:@selector(initNetworkCommunication)]){
+        [self openSessionWithCallbackBlock:^(BOOL success) {
+            if (success) {
+                NSLog(@"init communitcation");
+                [((UINavigationController*)self.window.rootViewController).topViewController performSelector:@selector(initNetworkCommunication)];
+                [((UINavigationController*)self.window.rootViewController).topViewController dismissViewControllerAnimated:NO completion:nil];
+            }else{
+                NSLog(@"opening failed");
+                [((UINavigationController*)self.window.rootViewController).topViewController presentViewController:loginViewController animated:NO completion:nil];
+
+            }
+        }];
+    }
     [FBSession.activeSession handleDidBecomeActive];
-    [((PBtcpObject*)[PBtcpObject sharedTcpObject]) initNetworkCommunication];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
@@ -91,7 +110,7 @@ userInfo
 {
     switch (state) {
         case FBSessionStateOpen:
-
+           NSLog(@"facebook session opened");  
             break;
         case FBSessionStateClosed:
         case FBSessionStateClosedLoginFailed:
@@ -123,13 +142,40 @@ userInfo
 
 - (void)openSession
 {
+    NSLog(@"opening facebook session");
     [FBSession openActiveSessionWithReadPermissions:nil
                                        allowLoginUI:YES
                                   completionHandler:
      ^(FBSession *session,
        FBSessionState state, NSError *error) {
-         [self sessionStateChanged:session state:state error:error];
+         if (!error) {
+              
+            [self sessionStateChanged:session state:state error:error];
+         }
      }];
+    
+}
+- (void)openSessionWithCallbackBlock:(void (^)(BOOL success))callbackBlock
+{
+    NSLog(@"opening facebook session WithBlock");
+    [FBSession openActiveSessionWithReadPermissions:nil
+                                       allowLoginUI:YES
+                                  completionHandler:
+     ^(FBSession *session,
+       FBSessionState state, NSError *error) {
+         if (!error) {
+             if (state==FBSessionStateOpen) {
+                 NSLog(@"callbakc yes");
+                 callbackBlock(YES);    
+             }else{
+                 NSLog(@"callbakc NO");
+                 callbackBlock(NO);
+             }
+             [self sessionStateChanged:session state:state error:error];
+             
+         }
+     }];
+    
 }
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
